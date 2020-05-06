@@ -63,6 +63,11 @@ int sc_main(int argc, char* argv[]) {
 
     // Define interconnect
     sc_signal<bool> reset_l;
+    sc_signal<bool> En;
+    sc_signal<vluint64_t> PacketSize;
+    sc_signal<vluint64_t> PacketRate;
+    // sc_signal<vluint64_t> PacketPattern;
+
     sc_signal<bool> M_AXIS_tvalid;
     sc_signal<bool> M_AXIS_tready;
     sc_signal<bool> M_AXIS_tlast;
@@ -74,11 +79,18 @@ int sc_main(int argc, char* argv[]) {
     // Attach signals to the model
     top->Clk       (clk);
     top->ResetN   (reset_l);
+    // top->En (En);
+    top->PacketSize (PacketSize);
+    // top->PacketRate(PacketRate);
+    // top->PacketPattern(PacketPattern);
 
     top->M_AXIS_tvalid  (M_AXIS_tvalid);
     top->M_AXIS_tready   (M_AXIS_tready);
     top->M_AXIS_tlast   (M_AXIS_tlast);
     top->M_AXIS_tdata (M_AXIS_tdata);
+    // top->M_AXIS_tstrb (M_AXIS_tstrb);
+    // top->M_AXIS_tkeep (M_AXIS_tkeep);
+    // top->M_AXIS_tuser (M_AXIS_tuser);
     top->in_quad (in_quad);
 
 
